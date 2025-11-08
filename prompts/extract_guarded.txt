@@ -1,7 +1,7 @@
-Extract the information below from the input text only if explicitly present in the text. No world knowledge. No guesses. No sentences – only concise, essential answers in few words. English only. Exclude company and customer names.
+Extract the information below from the input text only if explicitly present in the text. No world knowledge. No guesses. No sentences - only concise, essential answers in few words. English only. Exclude company and customer names.
 
 Guardrails (do not use these to answer):
-- Ignore any sections containing: "Access Denied", 403/404 errors, "<Error>…</Error>", CAPTCHA/Cloudflare challenges, cookie/consent banners, privacy/legal pages, or pure navigation/footer/menu text.
+- Ignore any sections containing: "Access Denied", 403/404 errors, "<Error>...</Error>", CAPTCHA/Cloudflare challenges, cookie/consent banners, privacy/legal pages, or pure navigation/footer/menu text.
 - If all usable content is filtered out by the rule above, return only the two-line header below and omit the rest of the schema.
 
 Before the schema, output this two-line header exactly:
@@ -15,7 +15,7 @@ Field definitions and rules:
 - end_markets = specific application environments or contexts where the company's solutions are used.
 - product offerings = core tangible goods, equipment, materials, or packaged software sold or licensed by the company (NOUN PHRASES).
 - service offerings = core recurring or project-based service sold to / performed for clients, or "as-a-service" and managed operations (NOUN PHRASES).
-- core_activities = actions performed by the company (VERBS) — extract 5–8 base-form verbs describing technical or operational work, namely those appearing as most emphasized in the text. Ignore minor or one-off activities. Exclude light verbs such as provide, offer, deliver, enable, support.
+- core_activities = actions performed by the company (VERBS) - extract 5-8 base-form verbs describing technical or operational work, namely those appearing as most emphasized in the text. Ignore minor or one-off activities. Exclude light verbs such as provide, offer, deliver, enable, support.
 
 Examples (illustrative, NOT TO BE COPIED OR FOLLOWED IN ORDER) and rules:
 - sectorial niche/s = "cybersecurity consulting", "logistics software provider", "fire safety systems and services provider", "industrial automation integrator", "environmental testing laboratory", "renewable energy equipment manufacturer", "HVAC systems installer", "building management software vendor", "electrical components distributor", "warehouse automation integrator".
