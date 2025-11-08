@@ -1,0 +1,35 @@
+# Batch Pipeline Configuration
+
+aws:
+  bucket: buyer-finder
+  region: eu-west-2
+  s3_prefix_crawled: crawler-6k-results/processed
+  s3_prefix_requests: crawler-6k-results/questions_gpt4omini_requests
+  s3_prefix_responses: crawler-6k-results/questions_gpt4omini_responses
+  s3_prefix_answers: crawler-6k-results/answers
+  s3_prefix_tables: crawler-6k-results/tables
+
+openai:
+  model: gpt-4o-mini
+  batch_api: true
+  temperature: 0.1
+  max_tokens: 300
+
+batch:
+  batch_size: 1000  # requests per batch
+  max_input_tokens: 2000  # truncate markdowns to this
+  
+processing:
+  timeout_seconds: 300
+  retry_attempts: 3
+  
+paths:
+  prompts: prompts/
+  inputs: inputs/
+  requests: requests/
+  responses: responses/
+  tables: tables/
+  manifests: manifests/
+  logs: logs/
+  tmp: tmp/
+

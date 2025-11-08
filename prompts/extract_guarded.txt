@@ -1,0 +1,37 @@
+Extract the information below from the input text only if explicitly present in the text. No world knowledge. No guesses. No sentences – only concise, essential answers in few words. English only. Exclude company and customer names.
+
+Guardrails (do not use these to answer):
+- Ignore any sections containing: "Access Denied", 403/404 errors, "<Error>…</Error>", CAPTCHA/Cloudflare challenges, cookie/consent banners, privacy/legal pages, or pure navigation/footer/menu text.
+- If all usable content is filtered out by the rule above, return only the two-line header below and omit the rest of the schema.
+
+Before the schema, output this two-line header exactly:
+scrape_status: success | error
+error_code: null | access_denied | cookie_only | bot_blocked | no_content
+
+Present the results in the schema and order shown below, listing values under each field. Each section of the schema is a paragraph, separated by an empty line to improve readability. If a field has no information, omit it entirely (do not write "none" or placeholders).
+
+Field definitions and rules:
+- sectorial niche/s = the company's competitive domain/s + role/s (NOUN PHRASES); it must describe which industrial segment/s the company competes in.
+- end_markets = specific application environments or contexts where the company's solutions are used.
+- product offerings = core tangible goods, equipment, materials, or packaged software sold or licensed by the company (NOUN PHRASES).
+- service offerings = core recurring or project-based service sold to / performed for clients, or "as-a-service" and managed operations (NOUN PHRASES).
+- core_activities = actions performed by the company (VERBS) — extract 5–8 base-form verbs describing technical or operational work, namely those appearing as most emphasized in the text. Ignore minor or one-off activities. Exclude light verbs such as provide, offer, deliver, enable, support.
+
+Examples (illustrative, NOT TO BE COPIED OR FOLLOWED IN ORDER) and rules:
+- sectorial niche/s = "cybersecurity consulting", "logistics software provider", "fire safety systems and services provider", "industrial automation integrator", "environmental testing laboratory", "renewable energy equipment manufacturer", "HVAC systems installer", "building management software vendor", "electrical components distributor", "warehouse automation integrator".
+- end_markets = "hospitals", "data centers", "retail fuel stations", "offshore platforms"; include only real-world application settings; exclude generic terms like "industries", "clients", "markets", "companies".
+- product offerings = "fire detection control panels", "sprinkler systems", "HVAC components".
+- service offerings = "HVAC maintenance", "SaaS", "warehouse WMS software", "building site inspection", "water testing".
+- core_activities = "design", "manufacture", "install", "integrate", "commission", "maintain", "repair", "distribute", "lease", "license".
+
+Output schema (separate each section with a line space):
+sectorial niche/s: [values]
+
+end markets: [values]
+
+product offerings: [values]
+
+service offerings: [values]
+
+core activities: [values]
+

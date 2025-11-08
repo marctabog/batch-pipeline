@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+*.tmp
+
+# Test folder
+test/
+
+# Data files (too large for git)
+inputs/*.csv
+requests/*.jsonl
+requests/*.jsonl.gz
+responses/*.jsonl
+responses/*.jsonl.gz
+tables/*.csv
+manifests/*.csv
+
+# Keep example/template files
+!inputs/.gitkeep
+!requests/.gitkeep
+!responses/.gitkeep
+!tables/.gitkeep
+!manifests/.gitkeep
+!logs/.gitkeep
+!tmp/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.key
+*.pem
+config.local.yaml
+
