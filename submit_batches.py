@@ -26,12 +26,16 @@ def submit_batch_file(client, filepath, config):
     Returns batch object with id, status, etc.
     """
     try:
-        # Upload file
+        # Upload file with explicit UTF-8 encoding
+        # Read as bytes to ensure proper encoding
         with open(filepath, 'rb') as f:
-            batch_input_file = client.files.create(
-                file=f,
-                purpose="batch"
-            )
+            file_content = f.read()
+        
+        # Create a tuple for file upload (filename, content, mime-type)
+        batch_input_file = client.files.create(
+            file=(filepath.name, file_content, "application/json"),
+            purpose="batch"
+        )
         
         # Create batch
         batch = client.batches.create(
