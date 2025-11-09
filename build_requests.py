@@ -61,28 +61,32 @@ def create_batch_request(custom_id, prompt, markdown_content, config):
     Format for OpenAI Batch API.
     """
     model = config['openai']['model']
-    temperature = config['openai']['temperature']
     max_completion_tokens = config['openai']['max_tokens']
+    
+    body = {
+        "model": model,
+        "max_completion_tokens": max_completion_tokens,
+        "messages": [
+            {
+                "role": "system",
+                "content": prompt
+            },
+            {
+                "role": "user",
+                "content": markdown_content
+            }
+        ]
+    }
+    
+    # Only add temperature for models that support it (not gpt-5-mini)
+    if 'mini' not in model.lower():
+        body["temperature"] = config['openai']['temperature']
     
     request = {
         "custom_id": custom_id,
         "method": "POST",
         "url": "/v1/chat/completions",
-        "body": {
-            "model": model,
-            "temperature": temperature,
-            "max_completion_tokens": max_completion_tokens,
-            "messages": [
-                {
-                    "role": "system",
-                    "content": prompt
-                },
-                {
-                    "role": "user",
-                    "content": markdown_content
-                }
-            ]
-        }
+        "body": body
     }
     
     return request
