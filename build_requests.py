@@ -62,7 +62,7 @@ def create_batch_request(custom_id, prompt, markdown_content, config):
     """
     model = config['openai']['model']
     temperature = config['openai']['temperature']
-    max_tokens = config['openai']['max_tokens']
+    max_completion_tokens = config['openai']['max_tokens']
     
     request = {
         "custom_id": custom_id,
@@ -71,7 +71,7 @@ def create_batch_request(custom_id, prompt, markdown_content, config):
         "body": {
             "model": model,
             "temperature": temperature,
-            "max_tokens": max_tokens,
+            "max_completion_tokens": max_completion_tokens,
             "messages": [
                 {
                     "role": "system",
