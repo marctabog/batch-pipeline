@@ -79,7 +79,8 @@ def discover_sites(config, limit=None):
                 print(f"[WARN] Could not parse: {key}")
                 continue
             
-            custom_id = f"deal_{deal_id}__{domain}"
+            # Include timestamp to ensure uniqueness (same domain may be crawled multiple times)
+            custom_id = f"deal_{deal_id}__{domain}__{timestamp}"
             
             # Reconstruct URL (http by default, could be enhanced)
             url = f"http://{domain}" if not domain.startswith('www') else f"http://{domain}"
