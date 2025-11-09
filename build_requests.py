@@ -61,11 +61,10 @@ def create_batch_request(custom_id, prompt, markdown_content, config):
     Format for OpenAI Batch API.
     """
     model = config['openai']['model']
-    max_completion_tokens = config['openai']['max_tokens']
     
     body = {
         "model": model,
-        "max_completion_tokens": max_completion_tokens,
+        # No max_completion_tokens - let reasoning models use their default limit
         "messages": [
             {
                 "role": "system",
