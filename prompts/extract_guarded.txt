@@ -1,4 +1,4 @@
-Extract the information below from the input text only if explicitly present in the text. No world knowledge. No guesses. No sentences - only concise, essential answers in few words. English only. Exclude company and customer names.
+Extract the information below from the input text only if explicitly present in the text. No world knowledge. No guesses. No sentences - only concise, essential answers in few words. Accept any language but always output answers in English. Exclude company and customer names.
 
 Guardrails (do not use these to answer):
 - Ignore any sections containing: "Access Denied", 403/404 errors, "<Error>...</Error>", CAPTCHA/Cloudflare challenges, cookie/consent banners, privacy/legal pages, or pure navigation/footer/menu text.
